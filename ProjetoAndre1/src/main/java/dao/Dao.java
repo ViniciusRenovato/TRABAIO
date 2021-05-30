@@ -8,7 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 public class Dao {
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.mycompany_entidades_jar_1.0-SNAPSHOTPU");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.mycompany_ProjetoAndre1_jar_1.0-SNAPSHOTPU");
     EntityManager em =emf.createEntityManager();
     EntityTransaction tx =em.getTransaction();
 
@@ -30,8 +30,6 @@ public class Dao {
     public List lista(Class c){ 
         return  em.createQuery("select o from "+c.getSimpleName()+ " o ").getResultList();
     }
-
-
     public List listaNative(Class c){ 
         return  em.createNativeQuery("select * from "+c.getSimpleName(),c).getResultList();
     }
