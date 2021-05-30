@@ -28,30 +28,30 @@ public class telaservico extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        adicionar = new javax.swing.JButton();
+        modificar = new javax.swing.JButton();
+        remover = new javax.swing.JButton();
+        retornar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Serviços");
 
-        jButton1.setText("Adicionar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        adicionar.setText("Adicionar");
+        adicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                adicionarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Modificar");
+        modificar.setText("Modificar");
 
-        jButton3.setText("Remover");
+        remover.setText("Remover");
 
-        jButton4.setText("Retornar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        retornar.setText("Retornar");
+        retornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                retornarActionPerformed(evt);
             }
         });
 
@@ -60,46 +60,47 @@ public class telaservico extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(55, 55, 55)
-                        .addComponent(jButton2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(retornar)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(adicionar)
+                                .addGap(18, 18, 18)
+                                .addComponent(modificar)))
+                        .addGap(18, 18, 18)
+                        .addComponent(remover)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel1)
-                .addGap(85, 85, 85)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(27, 27, 27))
+                    .addComponent(adicionar)
+                    .addComponent(modificar)
+                    .addComponent(remover))
+                .addGap(18, 18, 18)
+                .addComponent(retornar)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void adicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarActionPerformed
         new cadastrodoservico().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_adicionarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void retornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retornarActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_retornarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,10 +138,10 @@ public class telaservico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton adicionar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton modificar;
+    private javax.swing.JButton remover;
+    private javax.swing.JButton retornar;
     // End of variables declaration//GEN-END:variables
 }

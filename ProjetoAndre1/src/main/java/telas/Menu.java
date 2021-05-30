@@ -30,8 +30,8 @@ public class Menu extends javax.swing.JFrame {
         CadastroCliente = new javax.swing.JButton();
         CadastroAgendamento = new javax.swing.JButton();
         CadastroServicos = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Deslogar = new javax.swing.JButton();
+        CadastroFuncionario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,17 +56,17 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("DESLOGAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Deslogar.setText("DESLOGAR");
+        Deslogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                DeslogarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Funcionario");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        CadastroFuncionario.setText("Funcionario");
+        CadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CadastroFuncionarioActionPerformed(evt);
             }
         });
 
@@ -82,11 +82,11 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(CadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
+                            .addComponent(Deslogar)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(CadastroServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(CadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -97,10 +97,10 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CadastroCliente)
-                    .addComponent(jButton2)
+                    .addComponent(CadastroFuncionario)
                     .addComponent(CadastroServicos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(Deslogar)
                 .addGap(46, 46, 46))
         );
 
@@ -115,18 +115,18 @@ public class Menu extends javax.swing.JFrame {
         new telaagendamento().setVisible(true);
     }//GEN-LAST:event_CadastroAgendamentoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void DeslogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeslogarActionPerformed
         new Login().setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_DeslogarActionPerformed
 
     private void CadastroServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroServicosActionPerformed
         new telaservico().setVisible(true);
     }//GEN-LAST:event_CadastroServicosActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void CadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroFuncionarioActionPerformed
         new telafuncionario().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_CadastroFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,8 +166,8 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CadastroAgendamento;
     private javax.swing.JButton CadastroCliente;
+    private javax.swing.JButton CadastroFuncionario;
     private javax.swing.JButton CadastroServicos;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton Deslogar;
     // End of variables declaration//GEN-END:variables
 }
