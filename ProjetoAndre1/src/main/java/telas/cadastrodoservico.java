@@ -5,15 +5,19 @@
  */
 package telas;
 
+
+import Entidades.Servicos;
+import dao.Dao;
+
 /**
  *
  * @author Matheus
  */
 public class cadastrodoservico extends javax.swing.JFrame {
 
-    /**
-     * Creates new form cadastrodoservico
-     */
+    Dao dao = new Dao();
+    Servicos se;
+    
     public cadastrodoservico() {
         initComponents();
     }
@@ -34,8 +38,8 @@ public class cadastrodoservico extends javax.swing.JFrame {
         confirmar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        preco = new javax.swing.JFormattedTextField();
-        duracao = new javax.swing.JFormattedTextField();
+        preco = new javax.swing.JTextField();
+        duracao = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,6 +50,11 @@ public class cadastrodoservico extends javax.swing.JFrame {
         jLabel3.setText("Duração");
 
         confirmar.setText("CONFIRMAR");
+        confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarActionPerformed(evt);
+            }
+        });
 
         cancelar.setText("CANCELAR");
         cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -55,15 +64,6 @@ public class cadastrodoservico extends javax.swing.JFrame {
         });
 
         jLabel4.setText("cadastrando serviço");
-
-        preco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
-
-        duracao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
-        duracao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                duracaoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,9 +84,9 @@ public class cadastrodoservico extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nomeservico)
+                            .addComponent(nomeservico, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
                             .addComponent(preco)
-                            .addComponent(duracao, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))
+                            .addComponent(duracao))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -125,9 +125,12 @@ public class cadastrodoservico extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_cancelarActionPerformed
 
-    private void duracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_duracaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_duracaoActionPerformed
+    private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
+       se.setNomeServico(nomeservico.getText());
+       se.setValor(preco.getText());
+       se.setDuracao(duracao.getText());
+       dispose();
+    }//GEN-LAST:event_confirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,12 +170,12 @@ public class cadastrodoservico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelar;
     private javax.swing.JButton confirmar;
-    private javax.swing.JFormattedTextField duracao;
+    private javax.swing.JTextField duracao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField nomeservico;
-    private javax.swing.JFormattedTextField preco;
+    private javax.swing.JTextField preco;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,7 +15,7 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
     
     
     Agendamento a;
-    
+    Dao dao = new Dao();
     public cadastrodoagendamento() {
         initComponents();
         
@@ -112,13 +112,13 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cancelar, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 165, Short.MAX_VALUE)
+                                .addGap(18, 183, Short.MAX_VALUE)
                                 .addComponent(confirmar))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(horario_agendamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(horario_agendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -141,8 +141,8 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
                     .addComponent(data_agendamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(horario_agendamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(horario_agendamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelar)
@@ -158,7 +158,11 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-        // TODO add your handling code here:
+        
+        
+        a.setDataAtendimento(data_agendamento.getDate());
+        a.setHorario((String)horario_agendamento.getSelectedItem());
+        dispose();
     }//GEN-LAST:event_confirmarActionPerformed
 
     private void listaservicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaservicoActionPerformed

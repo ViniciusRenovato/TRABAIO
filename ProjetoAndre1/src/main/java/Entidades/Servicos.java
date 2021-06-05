@@ -21,10 +21,12 @@ public class Servicos implements Serializable {
     private Integer Id;
     private String NomeServico;
     private int IdServico;
-    private float valor;
+    private String valor;
     @OneToOne
-    private Funcionario funcionario;    
+    private Funcionario funcionario; 
+    private String duracao;
 
+    
     public List<Agendamento> getAgendamentos() {
         return agendamentos;
     }
@@ -57,11 +59,11 @@ public class Servicos implements Serializable {
         this.IdServico = IdServico;
     }
 
-    public float getValor() {
+    public String getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
 
@@ -73,6 +75,13 @@ public class Servicos implements Serializable {
         this.funcionario = funcionario;
     }
     
-    
+    public String getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
+    }
+
     
 }

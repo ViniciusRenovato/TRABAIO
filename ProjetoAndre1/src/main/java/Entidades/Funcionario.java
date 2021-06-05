@@ -2,11 +2,14 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Funcionario implements Serializable {
@@ -21,6 +24,11 @@ public class Funcionario implements Serializable {
     private String Funcao;
     private String NomeFuncionario;
     private Integer IDFuncionario;
+    
+    @Temporal(TemporalType.DATE)
+    private Date Data_Nasc;
+
+    
 
     public Servicos getServicos() {
         return servicos;
@@ -62,5 +70,12 @@ public class Funcionario implements Serializable {
         this.IDFuncionario = IDFuncionario;
     }
 
+    public Date getData_Nasc() {
+        return Data_Nasc;
+    }
+
+    public void setData_Nasc(Date Data_Nasc) {
+        this.Data_Nasc = Data_Nasc;
+    }
     
 }

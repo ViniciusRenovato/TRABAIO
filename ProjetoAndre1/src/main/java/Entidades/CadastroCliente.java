@@ -24,6 +24,7 @@ public class CadastroCliente implements Serializable{
     private Integer Id;
     private String nome;
     private String telefone;
+    
     @Temporal(TemporalType.DATE)
     private Date Data_Nasc;
     private Integer Idcliente;

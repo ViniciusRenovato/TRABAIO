@@ -25,8 +25,8 @@ public class Agendamento implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date DataAtendimento;
     
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date horario;
+   
+    private String horario;
     
     @ManyToOne
     private CadastroCliente cadastroCliente;    
@@ -82,11 +82,11 @@ public class Agendamento implements Serializable {
         this.servicos = servicos;
     }
 
-    public Date getHorario() {
+    public String getHorario() {
         return horario;
     }
 
-    public void setHorario(Date horario) {
+    public void setHorario(String horario) {
         this.horario = horario;
     }
  

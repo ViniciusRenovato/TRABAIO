@@ -139,6 +139,7 @@ public class cadastrodoCliente extends javax.swing.JFrame {
         cc.setNome(nome.getText());
         cc.setTelefone(telefone.getText());
         cc.setData_Nasc(data_nascimento.getDate());
+         dispose();
     }//GEN-LAST:event_confirmarActionPerformed
 
     /**
