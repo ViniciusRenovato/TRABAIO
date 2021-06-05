@@ -5,17 +5,20 @@
  */
 package telas;
 
+import dao.Dao;
+import Entidades.Agendamento;
 /**
  *
  * @author Matheus
  */
 public class cadastrodoagendamento extends javax.swing.JFrame {
-
-    /**
-     * Creates new form cadastrodoagendamento
-     */
+    
+    
+    Agendamento a;
+    
     public cadastrodoagendamento() {
         initComponents();
+        
     }
 
     /**
@@ -33,9 +36,11 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
         listacliente = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        datahora = new javax.swing.JTextField();
         listaservico = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        data_agendamento = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        horario_agendamento = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,46 +61,65 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
         jLabel1.setText("Nome do Cliente");
 
         listacliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel2.setText("Serviço");
-
-        jLabel3.setText("Data/Horario");
-
-        datahora.addActionListener(new java.awt.event.ActionListener() {
+        listacliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                datahoraActionPerformed(evt);
+                listaclienteActionPerformed(evt);
             }
         });
 
+        jLabel2.setText("Serviço");
+
+        jLabel3.setText("Data");
+
         listaservico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        listaservico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaservicoActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Agendando Cliente");
+
+        jLabel5.setText("Horario");
+
+        horario_agendamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30" }));
+        horario_agendamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horario_agendamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(cancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
-                        .addComponent(confirmar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(listacliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(datahora)
-                                .addComponent(listaservico, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(listacliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(listaservico, 0, 214, Short.MAX_VALUE)
+                            .addComponent(data_agendamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cancelar, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 165, Short.MAX_VALUE)
+                                .addComponent(confirmar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(horario_agendamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -103,7 +127,7 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(listacliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -112,10 +136,14 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(listaservico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(datahora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73)
+                    .addComponent(data_agendamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(horario_agendamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelar)
                     .addComponent(confirmar))
@@ -125,10 +153,6 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void datahoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datahoraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_datahoraActionPerformed
-
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         dispose();
     }//GEN-LAST:event_cancelarActionPerformed
@@ -136,6 +160,18 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_confirmarActionPerformed
+
+    private void listaservicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaservicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaservicoActionPerformed
+
+    private void horario_agendamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horario_agendamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_horario_agendamentoActionPerformed
+
+    private void listaclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaclienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaclienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,11 +211,13 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton cancelar;
     private javax.swing.JToggleButton confirmar;
-    private javax.swing.JTextField datahora;
+    private com.toedter.calendar.JDateChooser data_agendamento;
+    private javax.swing.JComboBox<String> horario_agendamento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JComboBox<String> listacliente;
     private javax.swing.JComboBox<String> listaservico;
     // End of variables declaration//GEN-END:variables
