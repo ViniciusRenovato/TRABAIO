@@ -70,5 +70,11 @@ public class Funcionario implements Serializable {
     public void setData_Nasc(Date Data_Nasc) {
         this.Data_Nasc = Data_Nasc;
     }
+
+    @Override
+    public String toString() {
+        return NomeFuncionario; //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
 }

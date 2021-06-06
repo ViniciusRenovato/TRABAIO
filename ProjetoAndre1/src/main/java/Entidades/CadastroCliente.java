@@ -69,7 +69,14 @@ public class CadastroCliente implements Serializable{
         this.Data_Nasc = Data_Nasc;
     }
 
+    @Override
+    public String toString() {
+        return nome; //To change body of generated methods, choose Tools | Templates.
+    }
+
    
+    
+    
  
     
 }

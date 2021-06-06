@@ -39,6 +39,11 @@ public class Agendamento implements Serializable {
     
     @ManyToOne
     private Servicos servicos;
+    
+    
+    
+    @ManyToOne
+    private Funcionario funcionario;
 
     public Recibo getRecibo() {
         return recibo;
@@ -88,6 +93,15 @@ public class Agendamento implements Serializable {
     public void setHorario(String horario) {
         this.horario = horario;
     }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
  
+    
     
 }

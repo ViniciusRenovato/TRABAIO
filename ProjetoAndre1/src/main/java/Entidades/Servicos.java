@@ -76,5 +76,10 @@ public class Servicos implements Serializable {
         this.duracao = duracao;
     }
 
+    @Override
+    public String toString() {
+        return NomeServico; //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }
