@@ -20,7 +20,6 @@ public class Servicos implements Serializable {
     
     private Integer Id;
     private String NomeServico;
-    private int IdServico;
     private String valor;
     @OneToOne
     private Funcionario funcionario; 
@@ -51,13 +50,7 @@ public class Servicos implements Serializable {
         this.NomeServico = NomeServico;
     }
 
-    public int getIdServico() {
-        return IdServico;
-    }
-
-    public void setIdServico(int IdServico) {
-        this.IdServico = IdServico;
-    }
+ 
 
     public String getValor() {
         return valor;

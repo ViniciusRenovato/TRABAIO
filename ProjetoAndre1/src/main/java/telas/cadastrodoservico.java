@@ -122,13 +122,19 @@ public class cadastrodoservico extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        new telaservico().setVisible(true);
         dispose();
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
+       se = new Servicos();
+        
        se.setNomeServico(nomeservico.getText());
        se.setValor(preco.getText());
        se.setDuracao(duracao.getText());
+       
+       dao.salvar(se);
+       new telaservico().setVisible(true);
        dispose();
     }//GEN-LAST:event_confirmarActionPerformed
 

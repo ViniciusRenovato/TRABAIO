@@ -27,7 +27,7 @@ public class CadastroCliente implements Serializable{
     
     @Temporal(TemporalType.DATE)
     private Date Data_Nasc;
-    private Integer Idcliente;
+    
 
     public List<Agendamento> getAgendamentos() {
         return agendamentos;
@@ -69,13 +69,7 @@ public class CadastroCliente implements Serializable{
         this.Data_Nasc = Data_Nasc;
     }
 
-    public Integer getIdcliente() {
-        return Idcliente;
-    }
-
-    public void setIdcliente(Integer Idcliente) {
-        this.Idcliente = Idcliente;
-    }
+   
  
     
 }

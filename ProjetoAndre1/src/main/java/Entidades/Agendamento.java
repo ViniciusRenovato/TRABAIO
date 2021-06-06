@@ -15,18 +15,24 @@ import javax.persistence.TemporalType;
 @Entity
 public class Agendamento implements Serializable {
 
+    
+    
+    
     @OneToOne(mappedBy = "agendamento")
     private Recibo recibo;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
-    private Integer IDAgendamento;
+   
     
     @Temporal(TemporalType.DATE)
     private Date DataAtendimento;
     
    
     private String horario;
+    
+    
+    
     
     @ManyToOne
     private CadastroCliente cadastroCliente;    
@@ -50,13 +56,6 @@ public class Agendamento implements Serializable {
         this.Id = Id;
     }
 
-    public Integer getIDAgendamento() {
-        return IDAgendamento;
-    }
-
-    public void setIDAgendamento(Integer IDAgendamento) {
-        this.IDAgendamento = IDAgendamento;
-    }
 
     public Date getDataAtendimento() {
         return DataAtendimento;

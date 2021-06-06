@@ -75,33 +75,34 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CadastroAgendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(CadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Deslogar)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(CadastroServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(452, 452, 452)
+                            .addComponent(Deslogar))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(CadastroServicos, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(82, 82, 82)
+                            .addComponent(CadastroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(CadastroFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(CadastroAgendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addContainerGap(261, Short.MAX_VALUE)
                 .addComponent(CadastroAgendamento)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CadastroCliente)
                     .addComponent(CadastroFuncionario)
-                    .addComponent(CadastroServicos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                    .addComponent(CadastroServicos)
+                    .addComponent(CadastroCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(Deslogar)
-                .addGap(46, 46, 46))
+                .addContainerGap())
         );
 
         pack();
@@ -109,10 +110,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void CadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroClienteActionPerformed
         new telacliente().setVisible(true);
+        dispose();
     }//GEN-LAST:event_CadastroClienteActionPerformed
 
     private void CadastroAgendamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroAgendamentoActionPerformed
         new telaagendamento().setVisible(true);
+        dispose();
     }//GEN-LAST:event_CadastroAgendamentoActionPerformed
 
     private void DeslogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeslogarActionPerformed
@@ -122,10 +125,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void CadastroServicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroServicosActionPerformed
         new telaservico().setVisible(true);
+        dispose();
     }//GEN-LAST:event_CadastroServicosActionPerformed
 
     private void CadastroFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastroFuncionarioActionPerformed
         new telafuncionario().setVisible(true);
+        dispose();
     }//GEN-LAST:event_CadastroFuncionarioActionPerformed
 
     /**

@@ -23,7 +23,7 @@ public class Funcionario implements Serializable {
     private Integer Id;
     private String Funcao;
     private String NomeFuncionario;
-    private Integer IDFuncionario;
+    
     
     @Temporal(TemporalType.DATE)
     private Date Data_Nasc;
@@ -62,13 +62,6 @@ public class Funcionario implements Serializable {
         this.NomeFuncionario = NomeFuncionario;
     }
 
-    public Integer getIDFuncionario() {
-        return IDFuncionario;
-    }
-
-    public void setIDFuncionario(Integer IDFuncionario) {
-        this.IDFuncionario = IDFuncionario;
-    }
 
     public Date getData_Nasc() {
         return Data_Nasc;

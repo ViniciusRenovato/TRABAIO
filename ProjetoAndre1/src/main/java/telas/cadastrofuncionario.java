@@ -145,13 +145,19 @@ public class cadastrofuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        new telafuncionario().setVisible(true);
         dispose();
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
+        fu = new Funcionario();
+        
         fu.setNomeFuncionario(nome.getText());
         fu.setData_Nasc(data_nascimento.getDate());
         fu.setFuncao((String)funcao.getSelectedItem());
+        
+        dao.salvar(fu);
+        new telafuncionario().setVisible(true);
         dispose();
     }//GEN-LAST:event_salvarActionPerformed
 

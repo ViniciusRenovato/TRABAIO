@@ -30,6 +30,10 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         confirmar = new javax.swing.JToggleButton();
         cancelar = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
@@ -41,6 +45,32 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
         data_agendamento = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         horario_agendamento = new javax.swing.JComboBox<>();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,14 +184,18 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        new telaagendamento().setVisible(true);
         dispose();
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-        
+        a = new Agendamento();
         
         a.setDataAtendimento(data_agendamento.getDate());
         a.setHorario((String)horario_agendamento.getSelectedItem());
+        
+        dao.salvar(a);
+        new telaagendamento().setVisible(true);
         dispose();
     }//GEN-LAST:event_confirmarActionPerformed
 
@@ -222,6 +256,10 @@ public class cadastrodoagendamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JComboBox<String> listacliente;
     private javax.swing.JComboBox<String> listaservico;
     // End of variables declaration//GEN-END:variables

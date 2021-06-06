@@ -5,19 +5,54 @@
  */
 package telas;
 
+import Entidades.Agendamento;
+import dao.Dao;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
+
 /**
  *
  * @author Matheus
  */
 public class telaagendamento extends javax.swing.JFrame {
 
-    /**
-     * Creates new form telaagendamento
-     */
+    Dao dao = new Dao();
+    private List <Agendamento> lista;
+    
+    
+    
+    
+    
+    
     public telaagendamento() {
         initComponents();
+        CarregaLista();
+        
     }
 
+    private void CarregaLista(){
+        
+        lista = dao.listaNative(Agendamento.class);
+        
+        String[] columnNames = new String[]{
+          "ID","Nome","Data", "Horario", "Serviço", "Funcionario"
+                
+        };
+        Object[][] data = new Object[lista.size()][columnNames.length];
+        for (int i = 0; i < lista.size(); i++) {
+            data[i][0] = lista.get(i).getId();
+            data[i][1] = lista.get(i).getCadastroCliente().getNome();
+            data[i][2] = lista.get(i).getDataAtendimento();
+            data[i][3] = lista.get(i).getHorario();
+            data[i][4] = lista.get(i).getServicos().getNomeServico();
+            data[i][5] = lista.get(i).getServicos().getFuncionario().getNomeFuncionario();
+         
+        }
+        tableagenda.setModel(new DefaultTableModel(data, columnNames));
+    } 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +68,8 @@ public class telaagendamento extends javax.swing.JFrame {
         remover = new javax.swing.JButton();
         retornar = new javax.swing.JButton();
         listaagendamento = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableagenda = new javax.swing.JTable();
+        canvas1 = new java.awt.Canvas();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +83,11 @@ public class telaagendamento extends javax.swing.JFrame {
         });
 
         modificar.setText("Modificar");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarActionPerformed(evt);
+            }
+        });
 
         remover.setText("Remover");
 
@@ -57,41 +98,53 @@ public class telaagendamento extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableagenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome","Data", "Horario", "Serviço", "Funcionario"
             }
         ));
-        listaagendamento.setViewportView(jTable1);
+        tableagenda.getTableHeader().setReorderingAllowed(false);
+        listaagendamento.setViewportView(tableagenda);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93)
-                        .addComponent(remover, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(listaagendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(retornar)
-                .addGap(320, 320, 320))
+                        .addGap(318, 318, 318)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(93, 93, 93)
+                                .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(remover, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(listaagendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(66, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(318, 318, 318)
-                .addComponent(jLabel1)
+                .addGap(361, 361, 361)
+                .addComponent(retornar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -100,15 +153,17 @@ public class telaagendamento extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
                 .addGap(42, 42, 42)
-                .addComponent(listaagendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addComponent(listaagendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(modificar)
                     .addComponent(adicionar)
+                    .addComponent(modificar)
                     .addComponent(remover))
                 .addGap(18, 18, 18)
                 .addComponent(retornar)
-                .addGap(17, 17, 17))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -116,11 +171,17 @@ public class telaagendamento extends javax.swing.JFrame {
 
     private void adicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarActionPerformed
         new cadastrodoagendamento().setVisible(true);
+        dispose();
     }//GEN-LAST:event_adicionarActionPerformed
 
     private void retornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retornarActionPerformed
+        new Menu().setVisible(true);
         dispose();
     }//GEN-LAST:event_retornarActionPerformed
+
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,11 +220,12 @@ public class telaagendamento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adicionar;
+    private java.awt.Canvas canvas1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane listaagendamento;
     private javax.swing.JButton modificar;
     private javax.swing.JButton remover;
     private javax.swing.JButton retornar;
+    private javax.swing.JTable tableagenda;
     // End of variables declaration//GEN-END:variables
 }
