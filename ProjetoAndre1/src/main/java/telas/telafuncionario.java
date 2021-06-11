@@ -71,7 +71,12 @@ public class telafuncionario extends javax.swing.JFrame {
             }
         });
 
-        modificar.setText("Modificar");
+        modificar.setText("Atualizar Funcionario");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarActionPerformed(evt);
+            }
+        });
 
         remover.setText("Remover");
 
@@ -150,6 +155,11 @@ public class telafuncionario extends javax.swing.JFrame {
         new Menu().setVisible(true);
         dispose();
     }//GEN-LAST:event_retornarActionPerformed
+
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+        new atualizarfuncionario().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_modificarActionPerformed
 
     /**
      * @param args the command line arguments

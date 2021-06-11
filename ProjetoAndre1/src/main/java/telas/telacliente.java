@@ -75,9 +75,19 @@ public class telacliente extends javax.swing.JFrame {
             }
         });
 
-        modificar.setText("modificar");
+        modificar.setText("Atualizar Cliente");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarActionPerformed(evt);
+            }
+        });
 
         remover.setText("remover");
+        remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removerActionPerformed(evt);
+            }
+        });
 
         adicionar.setText("adicionar");
         adicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +162,15 @@ public class telacliente extends javax.swing.JFrame {
         new Menu().setVisible(true);
         dispose();
     }//GEN-LAST:event_cancelarActionPerformed
+
+    private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
+        // TODO /add your handling code here:
+    }//GEN-LAST:event_removerActionPerformed
+
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+        new atualizarCliente().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_modificarActionPerformed
 
     /**
      * @param args the command line arguments

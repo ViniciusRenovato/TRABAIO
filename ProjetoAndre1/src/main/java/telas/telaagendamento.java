@@ -82,7 +82,7 @@ public class telaagendamento extends javax.swing.JFrame {
             }
         });
 
-        modificar.setText("Modificar");
+        modificar.setText("Remarcar horário");
         modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarActionPerformed(evt);
@@ -179,7 +179,8 @@ public class telaagendamento extends javax.swing.JFrame {
     }//GEN-LAST:event_retornarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        // TODO add your handling code here:
+        new atualizaragendamento().setVisible(true);
+        dispose();
     }//GEN-LAST:event_modificarActionPerformed
 
     /**
