@@ -20,6 +20,14 @@ public class atualizarfuncionario extends javax.swing.JFrame {
     public atualizarfuncionario() {
         initComponents();
     }
+    public atualizarfuncionario(Funcionario funcionario) {
+        initComponents();
+           if(funcionario!=null){
+           fu = funcionario;
+        }else{
+            fu = new Funcionario();
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -148,8 +156,7 @@ public class atualizarfuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
-        fu = new Funcionario();
-        
+     
         fu.setNomeFuncionario(nome.getText());
         fu.setData_Nasc(data_nascimento.getDate());
         fu.setFuncao((String)funcao.getSelectedItem());

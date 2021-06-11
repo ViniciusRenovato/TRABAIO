@@ -6,33 +6,21 @@
 package telas;
 
 
-
 import Entidades.CadastroCliente;
 import dao.Dao;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Matheus
- */
-public class telacliente extends javax.swing.JFrame {
 
-    
-    
-    
+public class telacliente extends javax.swing.JFrame {  
+    CadastroCliente cc;
     Dao dao = new Dao();
     private List <CadastroCliente> lista;
-    /**
-     * Creates new form telacliente
-     */
+
     public telacliente() {
         initComponents();
          CarregaLista();
     }
-
-    
-    
     private void CarregaLista(){
         
         lista = dao.listaNative(CadastroCliente.class);
@@ -50,10 +38,7 @@ public class telacliente extends javax.swing.JFrame {
          
         }
         tablecliente.setModel(new DefaultTableModel(data, columnNames));
-    } 
-    
-    
-    
+    }     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -164,11 +149,13 @@ public class telacliente extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
-        // TODO /add your handling code here:
+       dao.remove(lista.get(tablecliente.getSelectedRow()));
+       CarregaLista();
     }//GEN-LAST:event_removerActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        new atualizarCliente().setVisible(true);
+        new atualizarCliente(lista.get(tablecliente.getSelectedRow())).setVisible(true);
+        
         dispose();
     }//GEN-LAST:event_modificarActionPerformed
 

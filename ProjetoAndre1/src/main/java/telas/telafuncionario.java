@@ -79,6 +79,11 @@ public class telafuncionario extends javax.swing.JFrame {
         });
 
         remover.setText("Remover");
+        remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removerActionPerformed(evt);
+            }
+        });
 
         retornar.setText("Retornar");
         retornar.addActionListener(new java.awt.event.ActionListener() {
@@ -157,9 +162,15 @@ public class telafuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_retornarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        new atualizarfuncionario().setVisible(true);
-        dispose();
+           new atualizarfuncionario(lista.get(tablefuncionario.getSelectedRow())).setVisible(true); 
+           dispose();
     }//GEN-LAST:event_modificarActionPerformed
+
+    private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
+        dao.remove(lista.get(tablefuncionario.getSelectedRow()));
+        CarregaLista();
+                    
+    }//GEN-LAST:event_removerActionPerformed
 
     /**
      * @param args the command line arguments

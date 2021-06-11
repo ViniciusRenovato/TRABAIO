@@ -35,10 +35,34 @@ public class atualizaragendamento extends javax.swing.JFrame {
         boxfuncionario.setModel(new DefaultComboBoxModel(
                                     dao.lista(Funcionario.class).toArray()
                             )
+        );   
+    }
+    public atualizaragendamento(Agendamento agendamento) {
+        initComponents();
+        if(agendamento!=null){
+            a = agendamento;   
+        }else{
+            a = new Agendamento();
+        }
+        boxcliente.setModel(new DefaultComboBoxModel(
+                                    dao.lista(CadastroCliente.class).toArray()
+                            )
         );
         
+        boxservico.setModel(new DefaultComboBoxModel(
+                                    dao.lista(Servicos.class).toArray()
+                            )
+        );
         
-        
+        boxfuncionario.setModel(new DefaultComboBoxModel(
+                                    dao.lista(Funcionario.class).toArray()
+                            )
+        ); 
+        /*if(agendamento!=null){
+            a = agendamento;   
+        }else{
+            a = new Agendamento();
+        }*/
     }
 
     /**
@@ -236,7 +260,7 @@ public class atualizaragendamento extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-        a = new Agendamento();
+
         
         
         a.setCadastroCliente((CadastroCliente) boxcliente.getSelectedItem());

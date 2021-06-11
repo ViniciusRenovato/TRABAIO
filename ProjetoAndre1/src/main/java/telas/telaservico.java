@@ -77,6 +77,11 @@ public class telaservico extends javax.swing.JFrame {
         });
 
         remover.setText("Remover");
+        remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removerActionPerformed(evt);
+            }
+        });
 
         retornar.setText("Retornar");
         retornar.addActionListener(new java.awt.event.ActionListener() {
@@ -155,9 +160,13 @@ public class telaservico extends javax.swing.JFrame {
     }//GEN-LAST:event_retornarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        new atualizarservico().setVisible(true);
-        dispose();
+        new atualizarservico(lista.get(tableservicos.getSelectedRow())).setVisible(true); 
     }//GEN-LAST:event_modificarActionPerformed
+
+    private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
+        dao.remove(lista.get(tableservicos.getSelectedRow()));
+        CarregaLista(); 
+    }//GEN-LAST:event_removerActionPerformed
 
     /**
      * @param args the command line arguments

@@ -16,13 +16,22 @@ public class atualizarCliente extends javax.swing.JFrame {
     
     Dao dao= new Dao();
     CadastroCliente cc;
-    
-    
+  
     
     public atualizarCliente() {
         initComponents();
     }
-
+    public atualizarCliente(CadastroCliente cadastrocliente) {
+        initComponents();
+        if(cadastrocliente!=null){
+           cc = cadastrocliente;
+           nome.setText(cc.getNome());
+           telefone.setText(cc.getTelefone());
+           data_nascimento.setDate(cc.getData_Nasc());
+        }else{
+            cc = new CadastroCliente();
+        }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -140,8 +149,7 @@ public class atualizarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-        cc = new CadastroCliente();
-        
+  
         cc.setNome(nome.getText());
         cc.setTelefone(telefone.getText());
         cc.setData_Nasc(data_nascimento.getDate());
