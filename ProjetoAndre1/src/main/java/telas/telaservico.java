@@ -161,6 +161,7 @@ public class telaservico extends javax.swing.JFrame {
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
         new atualizarservico(lista.get(tableservicos.getSelectedRow())).setVisible(true); 
+        dispose();
     }//GEN-LAST:event_modificarActionPerformed
 
     private void removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerActionPerformed
