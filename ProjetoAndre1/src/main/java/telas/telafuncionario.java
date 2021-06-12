@@ -40,7 +40,7 @@ public class telafuncionario extends javax.swing.JFrame {
             data[i][0] = lista.get(i).getId();
             data[i][1] = lista.get(i).getNomeFuncionario();
             data[i][2] = lista.get(i).getFuncao();
-            data[i][3] = lista.get(i).getData_Nasc();
+            data[i][3] = lista.get(i).getData_NascFormatada();
             
          
         }

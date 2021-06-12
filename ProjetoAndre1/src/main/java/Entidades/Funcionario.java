@@ -2,6 +2,7 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -67,6 +68,10 @@ public class Funcionario implements Serializable {
         return Data_Nasc;
     }
 
+    public String getData_NascFormatada() {
+        return new SimpleDateFormat("dd/MM/YY").format(Data_Nasc);
+    }
+    
     public void setData_Nasc(Date Data_Nasc) {
         this.Data_Nasc = Data_Nasc;
     }

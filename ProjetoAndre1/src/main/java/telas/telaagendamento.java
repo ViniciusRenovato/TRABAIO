@@ -37,7 +37,7 @@ public class telaagendamento extends javax.swing.JFrame {
         for (int i = 0; i < lista.size(); i++) {
             data[i][0] = lista.get(i).getId();
             data[i][1] = lista.get(i).getCadastroCliente().getNome();
-            data[i][2] = lista.get(i).getDataAtendimento();
+            data[i][2] = lista.get(i).getDataAtendimentoFormatada();
             data[i][3] = lista.get(i).getHorario();
             data[i][4] = lista.get(i).getServicos().getNomeServico();
             data[i][5] = lista.get(i).getFuncionario().getNomeFuncionario();

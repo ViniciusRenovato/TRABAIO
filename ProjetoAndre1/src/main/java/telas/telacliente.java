@@ -34,7 +34,7 @@ public class telacliente extends javax.swing.JFrame {
             data[i][0] = lista.get(i).getId();
             data[i][1] = lista.get(i).getNome();
             data[i][2] = lista.get(i).getTelefone();
-            data[i][3] = lista.get(i).getData_Nasc();
+            data[i][3] = lista.get(i).getData_NascFormatada();
          
         }
         tablecliente.setModel(new DefaultTableModel(data, columnNames));

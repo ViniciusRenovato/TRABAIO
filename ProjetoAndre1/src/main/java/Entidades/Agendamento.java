@@ -2,6 +2,7 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -66,6 +67,10 @@ public class Agendamento implements Serializable {
         return DataAtendimento;
     }
 
+    public String getDataAtendimentoFormatada() {
+        return new SimpleDateFormat("dd/MM/YY").format(DataAtendimento);
+    }
+    
     public void setDataAtendimento(Date DataAtendimento) {
         this.DataAtendimento = DataAtendimento;
     }
