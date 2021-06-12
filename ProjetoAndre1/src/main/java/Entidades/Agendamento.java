@@ -31,7 +31,7 @@ public class Agendamento implements Serializable {
    
     private String horario;
     
-    
+    private String TipoPagamento;
     
     
     @ManyToOne
@@ -102,6 +102,12 @@ public class Agendamento implements Serializable {
         this.funcionario = funcionario;
     }
  
-    
+     public String getTipoPagamento() {
+        return TipoPagamento;
+    }
+
+    public void setTipoPagamento(String TipoPagamento) {
+        this.TipoPagamento = TipoPagamento;
+    }
     
 }

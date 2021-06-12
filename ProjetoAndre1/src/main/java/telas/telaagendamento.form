@@ -30,17 +30,22 @@
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="adicionar" min="-2" pref="163" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                      <Component id="modificar" min="-2" pref="163" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="remover" min="-2" pref="163" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="listaagendamento" min="-2" pref="677" max="-2" attributes="0"/>
+                      <EmptySpace pref="66" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="listaagendamento" min="-2" pref="677" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="adicionar" min="-2" pref="121" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="modificar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="remover" min="-2" pref="125" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="recibo" min="-2" pref="103" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="361" max="-2" attributes="0"/>
@@ -68,6 +73,7 @@
                   <Component id="adicionar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="modificar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="remover" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="recibo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="retornar" min="-2" max="-2" attributes="0"/>
@@ -137,6 +143,14 @@
       </SubComponents>
     </Container>
     <Component class="java.awt.Canvas" name="canvas1">
+    </Component>
+    <Component class="javax.swing.JButton" name="recibo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Recibo"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reciboActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

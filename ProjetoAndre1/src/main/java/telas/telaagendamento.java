@@ -64,6 +64,7 @@ public class telaagendamento extends javax.swing.JFrame {
         listaagendamento = new javax.swing.JScrollPane();
         tableagenda = new javax.swing.JTable();
         canvas1 = new java.awt.Canvas();
+        recibo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,6 +118,13 @@ public class telaagendamento extends javax.swing.JFrame {
         tableagenda.getTableHeader().setReorderingAllowed(false);
         listaagendamento.setViewportView(tableagenda);
 
+        recibo.setText("Recibo");
+        recibo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reciboActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,15 +135,19 @@ public class telaagendamento extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93)
-                        .addComponent(modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(listaagendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(66, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(adicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(modificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(remover, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(remover, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(listaagendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
+                        .addComponent(recibo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(361, 361, 361)
                 .addComponent(retornar)
@@ -158,7 +170,8 @@ public class telaagendamento extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adicionar)
                     .addComponent(modificar)
-                    .addComponent(remover))
+                    .addComponent(remover)
+                    .addComponent(recibo))
                 .addGap(18, 18, 18)
                 .addComponent(retornar)
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -186,6 +199,11 @@ public class telaagendamento extends javax.swing.JFrame {
        dao.remove(lista.get(tableagenda.getSelectedRow()));
        CarregaLista();
     }//GEN-LAST:event_removerActionPerformed
+
+    private void reciboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reciboActionPerformed
+        new telarecibo(lista.get(tableagenda.getSelectedRow())).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_reciboActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,6 +246,7 @@ public class telaagendamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane listaagendamento;
     private javax.swing.JButton modificar;
+    private javax.swing.JButton recibo;
     private javax.swing.JButton remover;
     private javax.swing.JButton retornar;
     private javax.swing.JTable tableagenda;

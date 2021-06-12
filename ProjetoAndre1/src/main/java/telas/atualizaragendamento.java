@@ -58,11 +58,7 @@ public class atualizaragendamento extends javax.swing.JFrame {
                                     dao.lista(Funcionario.class).toArray()
                             )
         ); 
-        /*if(agendamento!=null){
-            a = agendamento;   
-        }else{
-            a = new Agendamento();
-        }*/
+        
     }
 
     /**
